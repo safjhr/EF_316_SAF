@@ -16,6 +16,13 @@ class TransactionRepository extends ServiceEntityRepository
         parent::__construct($registry, Transaction::class);
     }
 
+    public function orderTransaction(){
+        return $this->createQueryBuilder('t')
+        ->orderBy('t.id', 'DESC')
+        ->getQuery()
+        ->getResult()
+        ;
+    }
 //    /**
 //     * @return Transaction[] Returns an array of Transaction objects
 //     */
